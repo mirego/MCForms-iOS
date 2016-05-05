@@ -10,12 +10,23 @@
 		16D913A61CD7D4780026648F /* MCForms.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D913A51CD7D4780026648F /* MCForms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16D913AD1CD7D4780026648F /* MCForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D913A21CD7D4780026648F /* MCForms.framework */; };
 		16D913B21CD7D4780026648F /* MCFormsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D913B11CD7D4780026648F /* MCFormsTests.swift */; };
-		16D913C41CD7D6080026648F /* MCFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D913C21CD7D6080026648F /* MCFormRow.swift */; };
-		16D913C51CD7D6080026648F /* MCFormBooleanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D913C31CD7D6080026648F /* MCFormBooleanRow.swift */; };
-		16D913C71CD7D61F0026648F /* MCFormTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D913C61CD7D61F0026648F /* MCFormTextRow.swift */; };
-		16D913C91CD7D6430026648F /* MCFormChoiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D913C81CD7D6430026648F /* MCFormChoiceRow.swift */; };
-		16D913CB1CD7DE900026648F /* MCFormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D913CA1CD7DE900026648F /* MCFormSection.swift */; };
-		16D913CD1CD7E0200026648F /* MCForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D913CC1CD7E0200026648F /* MCForm.swift */; };
+		16D913CD1CD7E0200026648F /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D913CC1CD7E0200026648F /* Form.swift */; };
+		16D914441CDA829C0026648F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914431CDA829C0026648F /* Protocols.swift */; };
+		16D9144A1CDA8A3C0026648F /* FormRowsGroupImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914461CDA8A3C0026648F /* FormRowsGroupImpl.swift */; };
+		16D9144B1CDA8A3C0026648F /* FormVerticalFlowLayouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914471CDA8A3C0026648F /* FormVerticalFlowLayouter.swift */; };
+		16D9144C1CDA8A3C0026648F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914491CDA8A3C0026648F /* UIImage.swift */; };
+		16D9144E1CDA96ED0026648F /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9144D1CDA96ED0026648F /* Dictionary.swift */; };
+		16D9147C1CDAA01B0026648F /* FormBooleanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914791CDAA01B0026648F /* FormBooleanRow.swift */; };
+		16D9147D1CDAA01B0026648F /* FormChoiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9147A1CDAA01B0026648F /* FormChoiceRow.swift */; };
+		16D9147E1CDAA01B0026648F /* FormTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9147B1CDAA01B0026648F /* FormTextRow.swift */; };
+		16D914831CDAA11B0026648F /* FormBaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914821CDAA11B0026648F /* FormBaseRow.swift */; };
+		16D9148F1CDAEF900026648F /* FormRowQuestionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9148C1CDAEF900026648F /* FormRowQuestionLabel.swift */; };
+		16D914901CDAEF900026648F /* FormRowUISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9148D1CDAEF900026648F /* FormRowUISwitch.swift */; };
+		16D914911CDAEF900026648F /* FormRowUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9148E1CDAEF900026648F /* FormRowUITextField.swift */; };
+		16D914931CDAF9BA0026648F /* FormRowRadioButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914921CDAF9BA0026648F /* FormRowRadioButtons.swift */; };
+		16D914951CDB80D20026648F /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914941CDB80D20026648F /* Stylesheet.swift */; };
+		16D914981CDB93A20026648F /* FormRowsGroupTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914971CDB93A20026648F /* FormRowsGroupTitleLabel.swift */; };
+		16D9149B1CDB93DC0026648F /* FormUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9149A1CDB93DC0026648F /* FormUILabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +46,23 @@
 		16D913AC1CD7D4780026648F /* MCFormsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCFormsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D913B11CD7D4780026648F /* MCFormsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCFormsTests.swift; sourceTree = "<group>"; };
 		16D913B31CD7D4780026648F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16D913C21CD7D6080026648F /* MCFormRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCFormRow.swift; sourceTree = "<group>"; };
-		16D913C31CD7D6080026648F /* MCFormBooleanRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCFormBooleanRow.swift; sourceTree = "<group>"; };
-		16D913C61CD7D61F0026648F /* MCFormTextRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCFormTextRow.swift; sourceTree = "<group>"; };
-		16D913C81CD7D6430026648F /* MCFormChoiceRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCFormChoiceRow.swift; sourceTree = "<group>"; };
-		16D913CA1CD7DE900026648F /* MCFormSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCFormSection.swift; sourceTree = "<group>"; };
-		16D913CC1CD7E0200026648F /* MCForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCForm.swift; sourceTree = "<group>"; };
+		16D913CC1CD7E0200026648F /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		16D914431CDA829C0026648F /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		16D914461CDA8A3C0026648F /* FormRowsGroupImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowsGroupImpl.swift; sourceTree = "<group>"; };
+		16D914471CDA8A3C0026648F /* FormVerticalFlowLayouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormVerticalFlowLayouter.swift; sourceTree = "<group>"; };
+		16D914491CDA8A3C0026648F /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		16D9144D1CDA96ED0026648F /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		16D914791CDAA01B0026648F /* FormBooleanRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBooleanRow.swift; sourceTree = "<group>"; };
+		16D9147A1CDAA01B0026648F /* FormChoiceRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormChoiceRow.swift; sourceTree = "<group>"; };
+		16D9147B1CDAA01B0026648F /* FormTextRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextRow.swift; sourceTree = "<group>"; };
+		16D914821CDAA11B0026648F /* FormBaseRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBaseRow.swift; sourceTree = "<group>"; };
+		16D9148C1CDAEF900026648F /* FormRowQuestionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowQuestionLabel.swift; sourceTree = "<group>"; };
+		16D9148D1CDAEF900026648F /* FormRowUISwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowUISwitch.swift; sourceTree = "<group>"; };
+		16D9148E1CDAEF900026648F /* FormRowUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowUITextField.swift; sourceTree = "<group>"; };
+		16D914921CDAF9BA0026648F /* FormRowRadioButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowRadioButtons.swift; sourceTree = "<group>"; };
+		16D914941CDB80D20026648F /* Stylesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
+		16D914971CDB93A20026648F /* FormRowsGroupTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowsGroupTitleLabel.swift; sourceTree = "<group>"; };
+		16D9149A1CDB93DC0026648F /* FormUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormUILabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,22 +124,82 @@
 		16D913BC1CD7D5680026648F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				16D913CC1CD7E0200026648F /* MCForm.swift */,
-				16D913CA1CD7DE900026648F /* MCFormSection.swift */,
-				16D913C11CD7D6080026648F /* Inputs */,
+				16D914431CDA829C0026648F /* Protocols.swift */,
+				16D913CC1CD7E0200026648F /* Form.swift */,
+				16D914941CDB80D20026648F /* Stylesheet.swift */,
+				16D914781CDAA01B0026648F /* Rows */,
+				16D914841CDAEC010026648F /* UI */,
+				16D914451CDA8A3C0026648F /* _Internals */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		16D913C11CD7D6080026648F /* Inputs */ = {
+		16D914451CDA8A3C0026648F /* _Internals */ = {
 			isa = PBXGroup;
 			children = (
-				16D913C21CD7D6080026648F /* MCFormRow.swift */,
-				16D913C31CD7D6080026648F /* MCFormBooleanRow.swift */,
-				16D913C61CD7D61F0026648F /* MCFormTextRow.swift */,
-				16D913C81CD7D6430026648F /* MCFormChoiceRow.swift */,
+				16D914481CDA8A3C0026648F /* Helpers */,
+				16D914461CDA8A3C0026648F /* FormRowsGroupImpl.swift */,
+				16D914471CDA8A3C0026648F /* FormVerticalFlowLayouter.swift */,
 			);
-			path = Inputs;
+			name = _Internals;
+			path = Internals;
+			sourceTree = "<group>";
+		};
+		16D914481CDA8A3C0026648F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				16D914491CDA8A3C0026648F /* UIImage.swift */,
+				16D9144D1CDA96ED0026648F /* Dictionary.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		16D914781CDAA01B0026648F /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				16D914821CDAA11B0026648F /* FormBaseRow.swift */,
+				16D914791CDAA01B0026648F /* FormBooleanRow.swift */,
+				16D9147A1CDAA01B0026648F /* FormChoiceRow.swift */,
+				16D9147B1CDAA01B0026648F /* FormTextRow.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		16D914841CDAEC010026648F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				16D914991CDB93CB0026648F /* Common */,
+				16D914961CDB936E0026648F /* RowsGroup */,
+				16D9148B1CDAEF900026648F /* Row */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		16D9148B1CDAEF900026648F /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				16D9148C1CDAEF900026648F /* FormRowQuestionLabel.swift */,
+				16D9148D1CDAEF900026648F /* FormRowUISwitch.swift */,
+				16D9148E1CDAEF900026648F /* FormRowUITextField.swift */,
+				16D914921CDAF9BA0026648F /* FormRowRadioButtons.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		16D914961CDB936E0026648F /* RowsGroup */ = {
+			isa = PBXGroup;
+			children = (
+				16D914971CDB93A20026648F /* FormRowsGroupTitleLabel.swift */,
+			);
+			path = RowsGroup;
+			sourceTree = "<group>";
+		};
+		16D914991CDB93CB0026648F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				16D9149A1CDB93DC0026648F /* FormUILabel.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,12 +310,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16D913C41CD7D6080026648F /* MCFormRow.swift in Sources */,
-				16D913CB1CD7DE900026648F /* MCFormSection.swift in Sources */,
-				16D913C71CD7D61F0026648F /* MCFormTextRow.swift in Sources */,
-				16D913C51CD7D6080026648F /* MCFormBooleanRow.swift in Sources */,
-				16D913C91CD7D6430026648F /* MCFormChoiceRow.swift in Sources */,
-				16D913CD1CD7E0200026648F /* MCForm.swift in Sources */,
+				16D9144C1CDA8A3C0026648F /* UIImage.swift in Sources */,
+				16D9144A1CDA8A3C0026648F /* FormRowsGroupImpl.swift in Sources */,
+				16D914951CDB80D20026648F /* Stylesheet.swift in Sources */,
+				16D914441CDA829C0026648F /* Protocols.swift in Sources */,
+				16D9144E1CDA96ED0026648F /* Dictionary.swift in Sources */,
+				16D9147D1CDAA01B0026648F /* FormChoiceRow.swift in Sources */,
+				16D914911CDAEF900026648F /* FormRowUITextField.swift in Sources */,
+				16D9144B1CDA8A3C0026648F /* FormVerticalFlowLayouter.swift in Sources */,
+				16D9147E1CDAA01B0026648F /* FormTextRow.swift in Sources */,
+				16D913CD1CD7E0200026648F /* Form.swift in Sources */,
+				16D9147C1CDAA01B0026648F /* FormBooleanRow.swift in Sources */,
+				16D914901CDAEF900026648F /* FormRowUISwitch.swift in Sources */,
+				16D9148F1CDAEF900026648F /* FormRowQuestionLabel.swift in Sources */,
+				16D914931CDAF9BA0026648F /* FormRowRadioButtons.swift in Sources */,
+				16D9149B1CDB93DC0026648F /* FormUILabel.swift in Sources */,
+				16D914831CDAA11B0026648F /* FormBaseRow.swift in Sources */,
+				16D914981CDB93A20026648F /* FormRowsGroupTitleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +514,7 @@
 				16D913B81CD7D4780026648F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16D913B91CD7D4780026648F /* Build configuration list for PBXNativeTarget "MCFormsTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +523,7 @@
 				16D913BB1CD7D4780026648F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
