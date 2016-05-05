@@ -62,15 +62,26 @@ Current Row types include :
 
 More will be added with time (i.e FormSliderRow, FormDatePickerRow, etc...).
 
-### Layout (in *layoutSubviews* callback)
+### Views & Layout
+
+To add the controls/labels in the view hierarchy :
 ```swift
-let formSize = form.layoutForm(withBoundingRect: CGSize(width: view.frame.size.width, height: .max),
+form.setupSuperview(superview: scrollView)
+```
+This will add each controls and labels as a subview of the specified superview and will also add a tap gesture on it to dismiss the keyboard.
+
+Doing this is optionnal - you can choose to manage the hierarchy yourself.
+
+To layout the controls/labels (in *layoutSubviews* callback) :
+
+```swift
+let formSize = form.layoutForm(withBoundingRect: CGSize(width: frame.size.width, height: .max),
                                   contentInsets: UIEdgeInsets(top: 30, left: 10, bottom: 10, right: 10))
         
-scrollView.frame = view.bounds
+scrollView.frame = bounds
 scrollView.contentSize = formSize
 ```
-If you'd like a custom layout, simply create your own Layouter conforming to the *FormLayouter* protocol and set it to the *layouter* property of the Form object.
+If you'd like a custom layout, simply create your own Layouter conforming to the *FormLayouter* protocol and set it to the *layouter* property of the Form object before calling this *layoutForm* method.
 
 ### Customize the UI
 
