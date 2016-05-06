@@ -22,6 +22,7 @@ internal class FormRowsGroupImpl: FormRowsGroup
     init(withTitle title: String)
     {
         titleLabel.text = title
+        titleLabel.numberOfLines = 0
     }
     
     func addInputRow(inputRow: FormRow, identifier: String)

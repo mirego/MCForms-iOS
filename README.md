@@ -75,12 +75,17 @@ Doing this is optionnal - you can choose to manage the hierarchy yourself.
 To layout the controls/labels (in *layoutSubviews* callback) :
 
 ```swift
-let formSize = form.layoutForm(withBoundingRect: CGSize(width: frame.size.width, height: .max),
-                                  contentInsets: UIEdgeInsets(top: 30, left: 10, bottom: 10, right: 10))
+let contentInset = UIEdgeInsets(top: 30, left: 10, bottom: 10, right: 10)
         
-scrollView.frame = bounds
-scrollView.contentSize = formSize
+let formSize = form.layoutForm(withBoundingRect: CGSize(width: frame.size.width, height: .max),
+                                  contentInsets: contentInset)
+        
+        scrollView.frame = bounds
+        scrollView.contentSize = CGSize(width: frame.size.width,
+                                       height: formSize.height + contentInset.top + contentInset.bottom)
 ```
+The size returned by the *form.layoutForm* method is always only the size of the form itself (without the insets) so that multiple forms can be displayed on the same view.
+
 If you'd like a custom layout, simply create your own Layouter conforming to the *FormLayouter* protocol and set it to the *layouter* property of the Form object before calling this *layoutForm* method.
 
 ### Customize the UI

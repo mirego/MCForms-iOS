@@ -44,10 +44,13 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        let contentInset = UIEdgeInsets(top: 30, left: 10, bottom: 10, right: 10)
+        
         let formSize = form.layoutForm(withBoundingRect: CGSize(width: view.frame.size.width, height: .max),
-                                       contentInsets: UIEdgeInsets(top: 30, left: 10, bottom: 10, right: 10))
+                                       contentInsets: contentInset)
         
         scrollView.frame = view.bounds
-        scrollView.contentSize = formSize
+        scrollView.contentSize = CGSize(width: view.frame.size.width,
+                                        height: formSize.height + contentInset.top + contentInset.bottom)
     }
 }

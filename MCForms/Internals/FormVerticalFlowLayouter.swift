@@ -11,13 +11,14 @@ import Foundation
 public class FormVerticalFlowLayouter: FormLayouter
 {
     let rowsSectionSpacing: CGFloat = 20
-    let rowsGroupSpacing: CGFloat = 10
-    let rowsSpacing: CGFloat = 5
+    let rowsGroupSpacing: CGFloat = 15
+    let rowsSpacing: CGFloat = 10
+    let rowQuestionControlSpacing: CGFloat = 6
     
     public func layoutFormRowsGroups(formRowsGroups: [FormRowsGroup], boundingRect: CGSize, contentInsets: UIEdgeInsets) -> CGSize
     {
         var insets = contentInsets
-        var totalGroupsHeight: CGFloat = insets.top + insets.bottom
+        var totalGroupsHeight: CGFloat = 0
         
         for formRowsGroup in formRowsGroups {
             let size = layoutFormRowsGroup(formRowsGroup, boundingRect: boundingRect, contentInsets: insets)
@@ -60,11 +61,11 @@ public class FormVerticalFlowLayouter: FormLayouter
         let questionLabelSize = formRow.questionLabel.sizeThatFits(maxSize)
         formRow.questionLabel.frame = CGRect(x: contentInsets.left, y: contentInsets.top, width: questionLabelSize.width, height: questionLabelSize.height)
         
-        let topOffset = formRow.questionLabel.frame.height
+        let topOffset = formRow.questionLabel.frame.height + rowQuestionControlSpacing
         
         let controlSize = formRow.control.sizeThatFits(CGSize(width: maxSize.width, height: maxSize.height - topOffset))
         formRow.control.frame = CGRect(x: contentInsets.left, y: contentInsets.top + topOffset, width: controlSize.width, height: controlSize.height)
         
-        return CGSize(width: maxSize.width, height: questionLabelSize.height + controlSize.height + rowsSpacing)
+        return CGSize(width: maxSize.width, height: questionLabelSize.height + controlSize.height + rowsSpacing + rowQuestionControlSpacing)
     }
 }
