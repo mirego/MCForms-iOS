@@ -17,7 +17,7 @@
 		16D9144C1CDA8A3C0026648F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914491CDA8A3C0026648F /* UIImage.swift */; };
 		16D9144E1CDA96ED0026648F /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9144D1CDA96ED0026648F /* Dictionary.swift */; };
 		16D9147C1CDAA01B0026648F /* FormBooleanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914791CDAA01B0026648F /* FormBooleanRow.swift */; };
-		16D9147D1CDAA01B0026648F /* FormChoiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9147A1CDAA01B0026648F /* FormChoiceRow.swift */; };
+		16D9147D1CDAA01B0026648F /* FormMultipleChoiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9147A1CDAA01B0026648F /* FormMultipleChoiceRow.swift */; };
 		16D9147E1CDAA01B0026648F /* FormTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9147B1CDAA01B0026648F /* FormTextRow.swift */; };
 		16D914831CDAA11B0026648F /* FormBaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D914821CDAA11B0026648F /* FormBaseRow.swift */; };
 		16D9148F1CDAEF900026648F /* FormRowQuestionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9148C1CDAEF900026648F /* FormRowQuestionLabel.swift */; };
@@ -49,11 +49,11 @@
 		16D913CC1CD7E0200026648F /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		16D914431CDA829C0026648F /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		16D914461CDA8A3C0026648F /* FormRowsGroupImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowsGroupImpl.swift; sourceTree = "<group>"; };
-		16D914471CDA8A3C0026648F /* FormVerticalFlowLayouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormVerticalFlowLayouter.swift; sourceTree = "<group>"; };
+		16D914471CDA8A3C0026648F /* FormVerticalFlowLayouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormVerticalFlowLayouter.swift; path = Internals/FormVerticalFlowLayouter.swift; sourceTree = "<group>"; };
 		16D914491CDA8A3C0026648F /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		16D9144D1CDA96ED0026648F /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		16D914791CDAA01B0026648F /* FormBooleanRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBooleanRow.swift; sourceTree = "<group>"; };
-		16D9147A1CDAA01B0026648F /* FormChoiceRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormChoiceRow.swift; sourceTree = "<group>"; };
+		16D9147A1CDAA01B0026648F /* FormMultipleChoiceRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormMultipleChoiceRow.swift; sourceTree = "<group>"; };
 		16D9147B1CDAA01B0026648F /* FormTextRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextRow.swift; sourceTree = "<group>"; };
 		16D914821CDAA11B0026648F /* FormBaseRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBaseRow.swift; sourceTree = "<group>"; };
 		16D9148C1CDAEF900026648F /* FormRowQuestionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowQuestionLabel.swift; sourceTree = "<group>"; };
@@ -126,6 +126,7 @@
 			children = (
 				16D914431CDA829C0026648F /* Protocols.swift */,
 				16D913CC1CD7E0200026648F /* Form.swift */,
+				16D914471CDA8A3C0026648F /* FormVerticalFlowLayouter.swift */,
 				16D914941CDB80D20026648F /* Stylesheet.swift */,
 				16D914781CDAA01B0026648F /* Rows */,
 				16D914841CDAEC010026648F /* UI */,
@@ -139,7 +140,6 @@
 			children = (
 				16D914481CDA8A3C0026648F /* Helpers */,
 				16D914461CDA8A3C0026648F /* FormRowsGroupImpl.swift */,
-				16D914471CDA8A3C0026648F /* FormVerticalFlowLayouter.swift */,
 			);
 			name = _Internals;
 			path = Internals;
@@ -159,7 +159,7 @@
 			children = (
 				16D914821CDAA11B0026648F /* FormBaseRow.swift */,
 				16D914791CDAA01B0026648F /* FormBooleanRow.swift */,
-				16D9147A1CDAA01B0026648F /* FormChoiceRow.swift */,
+				16D9147A1CDAA01B0026648F /* FormMultipleChoiceRow.swift */,
 				16D9147B1CDAA01B0026648F /* FormTextRow.swift */,
 			);
 			path = Rows;
@@ -315,7 +315,7 @@
 				16D914951CDB80D20026648F /* Stylesheet.swift in Sources */,
 				16D914441CDA829C0026648F /* Protocols.swift in Sources */,
 				16D9144E1CDA96ED0026648F /* Dictionary.swift in Sources */,
-				16D9147D1CDAA01B0026648F /* FormChoiceRow.swift in Sources */,
+				16D9147D1CDAA01B0026648F /* FormMultipleChoiceRow.swift in Sources */,
 				16D914911CDAEF900026648F /* FormRowUITextField.swift in Sources */,
 				16D9144B1CDA8A3C0026648F /* FormVerticalFlowLayouter.swift in Sources */,
 				16D9147E1CDAA01B0026648F /* FormTextRow.swift in Sources */,

@@ -14,16 +14,37 @@ public class FormRowRadioButtons: UIControl
     var tileLayers: [CALayer]!
     
     let padding: CGFloat = 5
-    let buttonEdgeSize: CGFloat = 44
+    let buttonEdgeSize: CGFloat = 40
     
     private var selectedButtonColor: UIColor = UIColor.greenColor()
     dynamic public var _selectedButtonColor: UIColor {
         get { return selectedButtonColor }
         set {
             selectedButtonColor = newValue
-            for button in buttons {
-                button.setBackgroundImage(UIImage.imageWithColor(selectedButtonColor), forState: .Selected)
-            }
+            updateSelectedImageAndColor()
+        }
+    }
+    
+    private var selectedButtonImage: UIImage?
+    dynamic public var _selectedButtonImage: UIImage? {
+        get { return selectedButtonImage }
+        set {
+            selectedButtonImage = newValue
+            updateSelectedImageAndColor()
+        }
+    }
+    
+    func updateSelectedImageAndColor()
+    {
+        var image: UIImage!
+        if let selectedButtonImage = selectedButtonImage {
+            image = selectedButtonImage.imageWithBackgroundColor(selectedButtonColor, size: CGSize(width: buttonEdgeSize, height: buttonEdgeSize))
+        } else {
+            image = UIImage.imageWithColor(selectedButtonColor)
+        }
+        
+        for button in buttons {
+            button.setBackgroundImage(image, forState: .Selected)
         }
     }
     
@@ -125,6 +146,21 @@ public class FormRowRadioButtons: UIControl
                       height: buttonEdgeSize + padding + padding)
     }
     
+    public override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView?
+    {
+        let hittedView = super.hitTest(point, withEvent: event)
+        if hittedView == self {
+            for button in buttons {
+                if CGRectContainsPoint(CGRectInset(button.frame, -10, -10) , point) {
+                    buttonTapped(button)
+                    break
+                }
+            }
+        }
+        
+        return hittedView
+    }
+    
     func buttonTapped(button: UIButton)
     {
         if !button.selected {
@@ -152,8 +188,6 @@ public class FormRowRadioButtons: UIControl
     private func stylelizeButton(button: UIButton)
     {
         button.clipsToBounds = true
-        button.layer.borderColor = UIColor.darkGrayColor().CGColor
-        button.layer.borderWidth = 1.0
         button.setBackgroundImage(UIImage.imageWithColor(buttonColor), forState: .Normal)
         button.setBackgroundImage(UIImage.imageWithColor(selectedButtonColor), forState: .Selected)
     }

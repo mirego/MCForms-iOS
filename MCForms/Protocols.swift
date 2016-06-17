@@ -26,4 +26,6 @@ public protocol FormRow
     var questionLabel: FormRowQuestionLabel { get }
     var control: UIControl { get }
     var value: AnyObject? { get set }
+    var accessoryViews: [UIView] { get set }
+    var footerView: UIView? { get set }
 }

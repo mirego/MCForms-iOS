@@ -35,6 +35,7 @@ internal class FormRowsGroupImpl: FormRowsGroup
     {
         for row in rows {
             row.control.endEditing(true)
+            row.footerView?.endEditing(true)
         }
     }
     

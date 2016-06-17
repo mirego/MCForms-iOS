@@ -15,11 +15,11 @@ public class FormStylesheet
         FormRowsGroupTitleLabel.appearance()._textColor = UIColor.darkGrayColor()
         FormRowsGroupTitleLabel.appearance()._font = UIFont.boldSystemFontOfSize(25)
         
-        FormRowUITextField.appearance()._textColor = UIColor.blueColor()
-        FormRowUITextField.appearance()._font = UIFont.systemFontOfSize(18)
-        
         FormRowQuestionLabel.appearance()._textColor = UIColor.darkGrayColor()
         FormRowQuestionLabel.appearance()._font = UIFont.systemFontOfSize(20)
+        
+        FormRowUITextField.appearance()._textColor = UIColor.blueColor()
+        FormRowUITextField.appearance()._font = UIFont.systemFontOfSize(18)
         
         FormRowUISwitch.appearance()._onTintColor = UIColor.blueColor()
         FormRowUISwitch.appearance()._tintColor = UIColor.cyanColor()

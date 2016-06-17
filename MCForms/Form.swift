@@ -7,21 +7,44 @@
 //
 
 import Foundation
+import UIKit
 
-public class Form
+public class Form: NSObject
 {
+    private static var allTapGestures = [UIGestureRecognizer]()
+    
     public var layouter: FormLayouter = FormVerticalFlowLayouter()
     public let keyboardDismissGesture = UITapGestureRecognizer()
     
-    private(set) var groups = [FormRowsGroup]()
+    private(set) public var groups = [FormRowsGroup]()
     private let defaultValues: [String : AnyObject]?
+    
+    private static var appearanceOnceToken: dispatch_once_t = 0
     
     public init(defaultValues: [String : AnyObject]? = nil)
     {
         self.defaultValues = defaultValues
-        keyboardDismissGesture.addTarget(self, action: #selector(Form.keyboardTapGestureTriggered))
         
-        FormStylesheet.applyAppearance()
+        super.init()
+        
+        Form.allTapGestures.append(keyboardDismissGesture)
+        keyboardDismissGesture.delegate = self
+        keyboardDismissGesture.addTarget(self, action: #selector(Form.keyboardTapGestureTriggered))
+    }
+    
+    override public class func initialize()
+    {
+        Form.applyDefaultAppearance(true)
+    }
+    
+    deinit
+    {
+        Form.allTapGestures.removeAtIndex(Form.allTapGestures.indexOf(keyboardDismissGesture)!)
+    }
+    
+    public static func applyDefaultAppearance()
+    {
+        applyDefaultAppearance(false)
     }
     
     public func addRowGroup(withTitle title: String, setup: (FormRowsGroup) -> Void)
@@ -46,6 +69,12 @@ public class Form
             for row in group.rows {
                 superview.addSubview(row.questionLabel)
                 superview.addSubview(row.control)
+                for accesoryView in row.accessoryViews {
+                    superview.addSubview(accesoryView)
+                }
+                if let footerView = row.footerView {
+                    superview.addSubview(footerView)
+                }
             }
         }
         
@@ -84,4 +113,23 @@ public class Form
         }
     }
     
+    private static func applyDefaultAppearance(onlyIfNotApplied: Bool)
+    {
+        if onlyIfNotApplied {
+            dispatch_once(&appearanceOnceToken) {
+                FormStylesheet.applyAppearance()
+            }
+        } else {
+            FormStylesheet.applyAppearance()
+            dispatch_once(&appearanceOnceToken) {}
+        }
+    }
+}
+
+extension Form : UIGestureRecognizerDelegate
+{
+    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+    {
+        return Form.allTapGestures.contains(gestureRecognizer) && Form.allTapGestures.contains(otherGestureRecognizer)
+    }
 }

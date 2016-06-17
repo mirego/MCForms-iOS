@@ -19,4 +19,9 @@ public class FormUILabel: UILabel
         get { return self.font }
         set { self.font = newValue }
     }
+    
+    dynamic public var _textAlignment: NSTextAlignment {
+        get { return self.textAlignment }
+        set { self.textAlignment = newValue }
+    }
 }
