@@ -23,6 +23,7 @@ public protocol FormRowsGroup
 
 public protocol FormRow
 {
+    var required: Bool { get set }
     var questionLabel: FormRowQuestionLabel { get }
     var control: UIControl { get }
     var value: AnyObject? { get set }

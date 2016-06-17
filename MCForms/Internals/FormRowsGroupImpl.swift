@@ -65,4 +65,11 @@ internal class FormRowsGroupImpl: FormRowsGroup
         
         return values
     }
+    
+    internal func validate() -> Bool
+    {
+        return rowsObjects.reduce(true) { (valid, row) -> Bool in
+            (row as! FormBaseRow).validate() && valid
+        }
+    }
 }

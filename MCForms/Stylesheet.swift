@@ -16,6 +16,7 @@ public class FormStylesheet
         FormRowsGroupTitleLabel.appearance()._font = UIFont.boldSystemFontOfSize(25)
         
         FormRowQuestionLabel.appearance()._textColor = UIColor.darkGrayColor()
+        FormRowQuestionLabel.appearance()._textColorOnError = UIColor.redColor()
         FormRowQuestionLabel.appearance()._font = UIFont.systemFontOfSize(20)
         
         FormRowUITextField.appearance()._textColor = UIColor.blueColor()

@@ -16,7 +16,7 @@ public class FormMultipleChoiceRow: FormBaseRow, FormRow
     public var control: UIControl {
         return radioButtonsControl
     }
-    public var value: AnyObject? {
+    override public var value: AnyObject? {
         get {
             return radioButtonsControl.selectedIndex
         }

@@ -21,7 +21,7 @@ public class FormTextRow: FormBaseRow, FormRow
     public var control: UIControl {
         return textField
     }
-    public var value: AnyObject? {
+    override public var value: AnyObject? {
         get {
             return textField.text ?? ""
         }

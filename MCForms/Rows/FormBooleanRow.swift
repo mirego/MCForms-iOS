@@ -15,7 +15,7 @@ public class FormBooleanRow: FormBaseRow, FormRow
         return switchControl
     }
     
-    public var value: AnyObject? {
+    override public var value: AnyObject? {
         get {
             return switchControl.on
         }

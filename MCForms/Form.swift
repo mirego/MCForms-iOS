@@ -106,6 +106,17 @@ public class Form: NSObject
         return values
     }
     
+    /**
+     * Updates validation appearance
+     */
+    public func validate() -> Bool
+    {
+        return groups.reduce(true) { (valid, group) -> Bool in
+            (group as! FormRowsGroupImpl).validate() && valid
+        }
+    }
+    
+    
     @objc internal func keyboardTapGestureTriggered()
     {
         for group in groups  {

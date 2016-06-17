@@ -10,7 +10,13 @@ import Foundation
 
 public class FormBaseRow
 {
+    public var required: Bool = false
+    
     public var questionLabel = FormRowQuestionLabel()
+    
+    public var value: AnyObject? {
+        return nil
+    }
     
     public var accessoryViews = [UIView]() {
         willSet {
@@ -42,5 +48,13 @@ public class FormBaseRow
     {
         questionLabel.numberOfLines = 0
         questionLabel.text = question        
+    }
+    
+    internal func validate() -> Bool
+    {
+        let isValid = (required ? value != nil : true)
+        questionLabel.inError = !isValid
+        
+        return isValid
     }
 }
