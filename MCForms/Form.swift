@@ -116,6 +116,20 @@ public class Form: NSObject
         }
     }
     
+    /**
+     * Returns all rows in the form
+     */
+    public func allRows() -> [String : FormRow]
+    {
+        var rows = [String : FormRow]()
+        
+        for group in groups  {
+            rows.update((group as! FormRowsGroupImpl).rowsById)
+        }
+        
+        return rows
+    }
+    
     
     @objc internal func keyboardTapGestureTriggered()
     {

@@ -16,6 +16,14 @@ internal class FormRowsGroupImpl: FormRowsGroup
         return rowsObjects
     }
     
+    var rowsById: [String : FormRow] {
+        var rowsById = [String : FormRow]()
+        for index in 0..<rowsIdentifiers.count {
+            rowsById[rowsIdentifiers[index]] = rowsObjects[index]
+        }
+        return rowsById
+    }
+    
     private var rowsObjects = [FormRow]()
     private var rowsIdentifiers = [String]()
     
