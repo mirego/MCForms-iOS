@@ -34,7 +34,7 @@ public class FormTextRow: FormBaseRow, FormRow
         }
     }
     
-    private var onTextChangeClosure: ((FormTextRow, ChangeType) -> Void)?
+    public var onTextChangeClosure: ((FormTextRow, ChangeType) -> Void)?
     
     public init(withQuestion question: String, placeholderText: String = "", onTextChangeClosure:((FormTextRow, ChangeType) -> Void)? = nil)
     {

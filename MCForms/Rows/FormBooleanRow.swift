@@ -28,7 +28,7 @@ public class FormBooleanRow: FormBaseRow, FormRow
         }
     }
     
-    private var onValueChangedClosure: ((FormBooleanRow) -> Void)?
+    public var onValueChangedClosure: ((FormBooleanRow) -> Void)?
     
     required public init(withQuestion question: String, onValueChanged:((FormBooleanRow) -> Void)? = nil)
     {

@@ -29,7 +29,7 @@ public class FormMultipleChoiceRow: FormBaseRow, FormRow
         }
     }
     
-    private var onSelectedIndexChangedClosure: ((FormMultipleChoiceRow) -> Void)?
+    public var onSelectedIndexChangedClosure: ((FormMultipleChoiceRow) -> Void)?
 
     required public init(withQuestion question: String, optionsCount: Int, onSelectedIndexChanged:((FormMultipleChoiceRow) -> Void)? = nil)
     {
