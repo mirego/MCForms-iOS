@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1610DB441D4BE8C2003D5137 /* FormRowsGroupCommentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1610DB431D4BE8C2003D5137 /* FormRowsGroupCommentLabel.swift */; };
 		16D913A61CD7D4780026648F /* MCForms.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D913A51CD7D4780026648F /* MCForms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16D913AD1CD7D4780026648F /* MCForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D913A21CD7D4780026648F /* MCForms.framework */; };
 		16D913B21CD7D4780026648F /* MCFormsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D913B11CD7D4780026648F /* MCFormsTests.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1610DB431D4BE8C2003D5137 /* FormRowsGroupCommentLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowsGroupCommentLabel.swift; sourceTree = "<group>"; };
 		16D913A21CD7D4780026648F /* MCForms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MCForms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D913A51CD7D4780026648F /* MCForms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCForms.h; sourceTree = "<group>"; };
 		16D913A71CD7D4780026648F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				16D914971CDB93A20026648F /* FormRowsGroupTitleLabel.swift */,
+				1610DB431D4BE8C2003D5137 /* FormRowsGroupCommentLabel.swift */,
 			);
 			path = RowsGroup;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				16D914951CDB80D20026648F /* Stylesheet.swift in Sources */,
 				16D914441CDA829C0026648F /* Protocols.swift in Sources */,
 				16D9144E1CDA96ED0026648F /* Dictionary.swift in Sources */,
+				1610DB441D4BE8C2003D5137 /* FormRowsGroupCommentLabel.swift in Sources */,
 				16D9147D1CDAA01B0026648F /* FormMultipleChoiceRow.swift in Sources */,
 				16D914911CDAEF900026648F /* FormRowUITextField.swift in Sources */,
 				16D9144B1CDA8A3C0026648F /* FormVerticalFlowLayouter.swift in Sources */,

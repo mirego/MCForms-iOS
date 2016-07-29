@@ -11,6 +11,7 @@ import Foundation
 internal class FormRowsGroupImpl: FormRowsGroup
 {
     var titleLabel = FormRowsGroupTitleLabel()
+    var commentLabel = FormRowsGroupCommentLabel()
     
     var rows: [FormRow] {
         return rowsObjects
@@ -27,10 +28,13 @@ internal class FormRowsGroupImpl: FormRowsGroup
     private var rowsObjects = [FormRow]()
     private var rowsIdentifiers = [String]()
     
-    init(withTitle title: String)
+    init(withTitle title: String, comment: String? = nil)
     {
         titleLabel.text = title
         titleLabel.numberOfLines = 0
+        
+        commentLabel.text = comment
+        commentLabel.numberOfLines = 0
     }
     
     func addInputRow(inputRow: FormRow, identifier: String)

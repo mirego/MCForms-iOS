@@ -16,6 +16,7 @@ public protocol FormLayouter
 public protocol FormRowsGroup
 {
     var titleLabel: FormRowsGroupTitleLabel { get }
+    var commentLabel: FormRowsGroupCommentLabel { get }
     var rows: [FormRow] { get }
     
     func addInputRow(inputRow: FormRow, identifier: String)

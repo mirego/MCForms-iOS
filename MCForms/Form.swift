@@ -47,9 +47,9 @@ public class Form: NSObject
         applyDefaultAppearance(false)
     }
     
-    public func addRowGroup(withTitle title: String, setup: (FormRowsGroup) -> Void)
+    public func addRowGroup(withTitle title: String, comment: String? = nil, setup: (FormRowsGroup) -> Void)
     {
-        let group = FormRowsGroupImpl(withTitle: title)
+        let group = FormRowsGroupImpl(withTitle: title, comment: comment)
         setup(group)
         
         if let defaultValues = defaultValues {
@@ -66,6 +66,7 @@ public class Form: NSObject
     {
         for group in groups {
             superview.addSubview(group.titleLabel)
+            superview.addSubview(group.commentLabel)
             for row in group.rows {
                 superview.addSubview(row.questionLabel)
                 superview.addSubview(row.control)

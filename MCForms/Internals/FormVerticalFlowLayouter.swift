@@ -45,8 +45,12 @@ public class FormVerticalFlowLayouter: FormLayouter
         let titleLabelSize = formRowsGroup.titleLabel.sizeThatFits(maxSize)
         formRowsGroup.titleLabel.frame = CGRect(x: contentInsets.left, y: contentInsets.top, width: maxSize.width, height: titleLabelSize.height)
         
+        let commentLabelSize = formRowsGroup.commentLabel.sizeThatFits(maxSize)
+        let commentTopOffset = CGRectGetMaxY(formRowsGroup.titleLabel.frame) + (commentLabelSize.height > 0 ? 5 : 0)
+        formRowsGroup.commentLabel.frame = CGRect(x: contentInsets.left, y: commentTopOffset, width: maxSize.width, height: commentLabelSize.height)
+        
         var totalRowsHeight: CGFloat = 0
-        var newInset = UIEdgeInsets(top: CGRectGetMaxY(formRowsGroup.titleLabel.frame) + rowsGroupSpacing, left: contentInsets.left, bottom: contentInsets.bottom, right: contentInsets.right)
+        var newInset = UIEdgeInsets(top: CGRectGetMaxY(formRowsGroup.commentLabel.frame) + rowsGroupSpacing, left: contentInsets.left, bottom: contentInsets.bottom, right: contentInsets.right)
         
         for formRow in formRowsGroup.rows {
             let rowSize = layoutFormRow(formRow, boundingRect: boundingRect, contentInsets: newInset)
