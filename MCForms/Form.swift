@@ -136,6 +136,8 @@ public class Form: NSObject
         for group in groups  {
             (group as! FormRowsGroupImpl).endEditing()
         }
+        
+        keyboardDismissGesture.view?.resignFirstResponder()
     }
     
     private static func applyDefaultAppearance(onlyIfNotApplied: Bool)
