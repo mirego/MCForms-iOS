@@ -25,9 +25,12 @@ class ViewController: UIViewController {
                 print(formBooleanRow)
                 }, identifier: "bool1")
             
-            group.addInputRow(FormMultipleChoiceRow(withQuestion: "Choose an option", optionsCount: 3, onSelectedIndexChanged: { (formChoiceRow) in
+            let multipleChoice = FormMultipleChoiceRow(withQuestion: "Choose an option", optionsCount: 3, onSelectedIndexChanged: { (formChoiceRow) in
                 print(formChoiceRow)
-            }), identifier: "choice1")
+                })
+            
+            multipleChoice.onSelectedIndexChangedClosure
+            group.addInputRow(multipleChoice, identifier: "choice1")
             
             group.addInputRow(FormTextRow(withQuestion: "Enter your best sentance", onTextChangeClosure: { (formTextRow, changeTypek) in
                 print(formTextRow)

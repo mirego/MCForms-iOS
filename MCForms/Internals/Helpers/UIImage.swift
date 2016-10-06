@@ -16,13 +16,13 @@ extension UIImage
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
+        CGContextSetFillColorWithColor(context!, color.CGColor)
+        CGContextFillRect(context!, rect)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return image.resizableImageWithCapInsets(UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1))
+        return image!.resizableImageWithCapInsets(UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1))
     }
     
     func imageWithBackgroundColor(color: UIColor, size: CGSize) -> UIImage
@@ -31,14 +31,14 @@ extension UIImage
         let context = UIGraphicsGetCurrentContext()
         let rect = CGRect(origin: .zero, size: size)
         
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
+        CGContextSetFillColorWithColor(context!, color.CGColor)
+        CGContextFillRect(context!, rect)
         
         let imageRect = CGRect(origin: CGPoint(x: (size.width - self.size.width) / 2.0, y: (size.height - self.size.height) / 2.0), size: self.size)
         drawInRect(imageRect, blendMode: CGBlendMode.Normal, alpha: 1.0)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
     }
 }
