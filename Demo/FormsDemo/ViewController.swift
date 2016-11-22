@@ -13,14 +13,14 @@ import MCForms
 class ViewController: UIViewController {
     
     let scrollView = UIScrollView()
-    let form = Form(defaultValues: ["bool1" : true, "choice1" : 1, "bool2" : false])
+    let form = Form(defaultValues: ["bool1" : true as AnyObject, "choice1" : 1 as AnyObject, "bool2" : false as AnyObject])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(scrollView)
         
-        form.addRowGroup(withTitle: "First section".uppercaseString) { (group) in
+        form.addRowGroup(withTitle: "First section".uppercased()) { (group) in
             group.addInputRow(FormBooleanRow(withQuestion: "Enable the matrix") { (formBooleanRow) in
                 print(formBooleanRow)
                 }, identifier: "bool1")
@@ -29,7 +29,6 @@ class ViewController: UIViewController {
                 print(formChoiceRow)
                 })
             
-            multipleChoice.onSelectedIndexChangedClosure
             group.addInputRow(multipleChoice, identifier: "choice1")
             
             group.addInputRow(FormTextRow(withQuestion: "Enter your best sentance", onTextChangeClosure: { (formTextRow, changeTypek) in
@@ -37,7 +36,7 @@ class ViewController: UIViewController {
             }), identifier: "text1")
         }
         
-        form.addRowGroup(withTitle: "Second section".uppercaseString) { (group) in
+        form.addRowGroup(withTitle: "Second section".uppercased()) { (group) in
             group.addInputRow(FormBooleanRow(withQuestion: "Question number four") { (formBooleanRow) in }, identifier: "bool2")
         }
         
@@ -49,7 +48,7 @@ class ViewController: UIViewController {
         
         let contentInset = UIEdgeInsets(top: 30, left: 10, bottom: 10, right: 10)
         
-        let formSize = form.layoutForm(withBoundingRect: CGSize(width: view.frame.size.width, height: .max),
+        let formSize = form.layoutForm(withBoundingRect: CGSize(width: view.frame.size.width, height: .greatestFiniteMagnitude),
                                        contentInsets: contentInset)
         
         scrollView.frame = view.bounds

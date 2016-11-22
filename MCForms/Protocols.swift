@@ -10,7 +10,7 @@ import Foundation
 
 public protocol FormLayouter
 {
-    func layoutFormRowsGroups(formRowsGroups: [FormRowsGroup], boundingRect: CGSize, contentInsets: UIEdgeInsets) -> CGSize
+    func layoutFormRowsGroups(_ formRowsGroups: [FormRowsGroup], boundingRect: CGSize, contentInsets: UIEdgeInsets) -> CGSize
 }
 
 public protocol FormRowsGroup
@@ -19,7 +19,7 @@ public protocol FormRowsGroup
     var commentLabel: FormRowsGroupCommentLabel { get }
     var rows: [FormRow] { get }
     
-    func addInputRow(inputRow: FormRow, identifier: String)
+    func addInputRow(_ inputRow: FormRow, identifier: String)
 }
 
 public protocol FormRow

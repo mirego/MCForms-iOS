@@ -8,27 +8,27 @@
 
 import Foundation
 
-public class FormBooleanRow: FormBaseRow, FormRow
+open class FormBooleanRow: FormBaseRow, FormRow
 {
-    public let switchControl = FormRowUISwitch()
-    public var control: UIControl {
+    open let switchControl = FormRowUISwitch()
+    open var control: UIControl {
         return switchControl
     }
     
-    override public var value: AnyObject? {
+    override open var value: AnyObject? {
         get {
-            return switchControl.on
+            return switchControl.isOn as AnyObject?
         }
         set {
             if let newValue = newValue as? Bool {
-                switchControl.on = newValue
+                switchControl.isOn = newValue
             } else {
-                switchControl.on = false
+                switchControl.isOn = false
             }
         }
     }
     
-    public var onValueChangedClosure: ((FormBooleanRow) -> Void)?
+    open var onValueChangedClosure: ((FormBooleanRow) -> Void)?
     
     required public init(withQuestion question: String, onValueChanged:((FormBooleanRow) -> Void)? = nil)
     {
@@ -36,10 +36,10 @@ public class FormBooleanRow: FormBaseRow, FormRow
         
         super.init(withQuestion: question)
         
-        switchControl.addTarget(self, action: #selector(FormBooleanRow.switchValueChanged), forControlEvents: .ValueChanged)
+        switchControl.addTarget(self, action: #selector(FormBooleanRow.switchValueChanged), for: .valueChanged)
     }
     
-    @objc internal func switchValueChanged(sender:UIButton!)
+    @objc internal func switchValueChanged(_ sender:UIButton!)
     {
         onValueChangedClosure?(self)
     }

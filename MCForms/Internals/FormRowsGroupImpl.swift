@@ -25,8 +25,8 @@ internal class FormRowsGroupImpl: FormRowsGroup
         return rowsById
     }
     
-    private var rowsObjects = [FormRow]()
-    private var rowsIdentifiers = [String]()
+    fileprivate var rowsObjects = [FormRow]()
+    fileprivate var rowsIdentifiers = [String]()
     
     init(withTitle title: String, comment: String? = nil)
     {
@@ -37,7 +37,7 @@ internal class FormRowsGroupImpl: FormRowsGroup
         commentLabel.numberOfLines = 0
     }
     
-    func addInputRow(inputRow: FormRow, identifier: String)
+    func addInputRow(_ inputRow: FormRow, identifier: String)
     {
         rowsObjects.append(inputRow)
         rowsIdentifiers.append(identifier)
@@ -51,7 +51,7 @@ internal class FormRowsGroupImpl: FormRowsGroup
         }
     }
     
-    internal func applyValues(values: [String : AnyObject])
+    internal func applyValues(_ values: [String : AnyObject])
     {
         for index in 0..<rowsIdentifiers.count {
             let identifier = rowsIdentifiers[index]

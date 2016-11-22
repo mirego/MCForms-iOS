@@ -8,41 +8,41 @@
 
 import UIKit
 
-public class FormRowUITextField: UITextField
+open class FormRowUITextField: UITextField
 {
-    dynamic public var _textColor: UIColor? {
+    dynamic open var _textColor: UIColor? {
         get { return super.textColor }
         set { textColor = newValue }
     }
     
-    dynamic public var _font: UIFont? {
+    dynamic open var _font: UIFont? {
         get { return self.font }
         set { self.font = newValue }
     }
     
-    dynamic public var _borderColor: UIColor {
-        get { return UIColor(CGColor: layer.borderColor ?? UIColor.clearColor().CGColor) }
-        set { layer.borderColor = newValue.CGColor }
+    dynamic open var _borderColor: UIColor {
+        get { return UIColor(cgColor: layer.borderColor ?? UIColor.clear.cgColor) }
+        set { layer.borderColor = newValue.cgColor }
     }
     
-    public override func textRectForBounds(bounds: CGRect) -> CGRect
+    open override func textRect(forBounds bounds: CGRect) -> CGRect
     {
-        let rect = super.textRectForBounds(bounds)
+        let rect = super.textRect(forBounds: bounds)
         let finalRect = rect.insetBy(dx: 5, dy: 2)
         return finalRect
     }
     
-    public override func placeholderRectForBounds(bounds: CGRect) -> CGRect
+    open override func placeholderRect(forBounds bounds: CGRect) -> CGRect
     {
-        return self.textRectForBounds(bounds)
+        return self.textRect(forBounds: bounds)
     }
     
-    public override func editingRectForBounds(bounds: CGRect) -> CGRect
+    open override func editingRect(forBounds bounds: CGRect) -> CGRect
     {
-        return self.textRectForBounds(bounds)
+        return self.textRect(forBounds: bounds)
     }
     
-    public override func sizeThatFits(size: CGSize) -> CGSize
+    open override func sizeThatFits(_ size: CGSize) -> CGSize
     {
         let defaultSize = super.sizeThatFits(size)
         return CGSize(width: size.width, height: defaultSize.height)

@@ -8,25 +8,25 @@
 
 import UIKit
 
-public class FormStylesheet
+open class FormStylesheet
 {
-    public static func applyAppearance()
+    open static func applyAppearance()
     {
-        FormRowsGroupTitleLabel.appearance()._textColor = UIColor.darkGrayColor()
-        FormRowsGroupTitleLabel.appearance()._font = UIFont.boldSystemFontOfSize(25)
+        FormRowsGroupTitleLabel.appearance()._textColor = UIColor.darkGray
+        FormRowsGroupTitleLabel.appearance()._font = UIFont.boldSystemFont(ofSize: 25)
         
-        FormRowQuestionLabel.appearance()._textColor = UIColor.darkGrayColor()
-        FormRowQuestionLabel.appearance()._textColorOnError = UIColor.redColor()
-        FormRowQuestionLabel.appearance()._font = UIFont.systemFontOfSize(20)
+        FormRowQuestionLabel.appearance()._textColor = UIColor.darkGray
+        FormRowQuestionLabel.appearance()._textColorOnError = UIColor.red
+        FormRowQuestionLabel.appearance()._font = UIFont.systemFont(ofSize: 20)
         
-        FormRowUITextField.appearance()._textColor = UIColor.blueColor()
-        FormRowUITextField.appearance()._font = UIFont.systemFontOfSize(18)
+        FormRowUITextField.appearance()._textColor = UIColor.blue
+        FormRowUITextField.appearance()._font = UIFont.systemFont(ofSize: 18)
         
-        FormRowUISwitch.appearance()._onTintColor = UIColor.blueColor()
-        FormRowUISwitch.appearance()._tintColor = UIColor.cyanColor()
+        FormRowUISwitch.appearance()._onTintColor = UIColor.blue
+        FormRowUISwitch.appearance()._tintColor = UIColor.cyan
         
-        FormRowRadioButtons.appearance()._selectedButtonColor = UIColor.blueColor()
-        FormRowRadioButtons.appearance()._buttonColor = UIColor.whiteColor()
-        FormRowRadioButtons.appearance()._tileBackgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
+        FormRowRadioButtons.appearance()._selectedButtonColor = UIColor.blue
+        FormRowRadioButtons.appearance()._buttonColor = UIColor.white
+        FormRowRadioButtons.appearance()._tileBackgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
     }
 }

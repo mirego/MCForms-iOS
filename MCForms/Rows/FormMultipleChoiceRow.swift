@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-public class FormMultipleChoiceRow: FormBaseRow, FormRow
+open class FormMultipleChoiceRow: FormBaseRow, FormRow
 {
     let radioButtonsControl: FormRowRadioButtons
     
-    public var control: UIControl {
+    open var control: UIControl {
         return radioButtonsControl
     }
-    override public var value: AnyObject? {
+    override open var value: AnyObject? {
         get {
-            return radioButtonsControl.selectedIndex
+            return radioButtonsControl.selectedIndex as AnyObject?
         }
         set {
             if let newValue = newValue as? Int {
@@ -29,7 +29,7 @@ public class FormMultipleChoiceRow: FormBaseRow, FormRow
         }
     }
     
-    public var onSelectedIndexChangedClosure: ((FormMultipleChoiceRow) -> Void)?
+    open var onSelectedIndexChangedClosure: ((FormMultipleChoiceRow) -> Void)?
 
     required public init(withQuestion question: String, optionsCount: Int, onSelectedIndexChanged:((FormMultipleChoiceRow) -> Void)? = nil)
     {
@@ -38,10 +38,10 @@ public class FormMultipleChoiceRow: FormBaseRow, FormRow
         
         super.init(withQuestion: question)
         
-        radioButtonsControl.addTarget(self, action: #selector(FormMultipleChoiceRow.choiceValueChanged), forControlEvents: .ValueChanged)
+        radioButtonsControl.addTarget(self, action: #selector(FormMultipleChoiceRow.choiceValueChanged), for: .valueChanged)
     }
     
-    @objc internal func choiceValueChanged(sender:UIButton!)
+    @objc internal func choiceValueChanged(_ sender:UIButton!)
     {
         onSelectedIndexChangedClosure?(self)
     }

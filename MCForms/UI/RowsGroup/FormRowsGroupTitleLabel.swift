@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class FormRowsGroupTitleLabel: FormUILabel
+open class FormRowsGroupTitleLabel: FormUILabel
 {
     
 }

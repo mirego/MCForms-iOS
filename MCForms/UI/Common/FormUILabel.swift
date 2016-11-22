@@ -8,26 +8,26 @@
 
 import UIKit
 
-public class FormUILabel: UILabel
+open class FormUILabel: UILabel
 {
-    private var textColorDefault: UIColor?
-    dynamic public var _textColor: UIColor? {
+    fileprivate var textColorDefault: UIColor?
+    dynamic open var _textColor: UIColor? {
         get { return textColorDefault }
         set { textColorDefault = newValue }
     }
     
-    private var textColorOnError: UIColor?
-    dynamic public var _textColorOnError: UIColor? {
+    fileprivate var textColorOnError: UIColor?
+    dynamic open var _textColorOnError: UIColor? {
         get { return textColorOnError }
         set { textColorOnError = newValue }
     }
     
-    dynamic public var _font: UIFont? {
+    dynamic open var _font: UIFont? {
         get { return self.font }
         set { self.font = newValue }
     }
     
-    dynamic public var _textAlignment: NSTextAlignment {
+    dynamic open var _textAlignment: NSTextAlignment {
         get { return self.textAlignment }
         set { self.textAlignment = newValue }
     }
@@ -38,7 +38,7 @@ public class FormUILabel: UILabel
         }
     }
     
-    private func updateErrorAppearance()
+    fileprivate func updateErrorAppearance()
     {
         textColor = inError ? (textColorOnError ?? textColorDefault) : textColorDefault
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class FormRowQuestionLabel: FormUILabel
+open class FormRowQuestionLabel: FormUILabel
 {
 
 }

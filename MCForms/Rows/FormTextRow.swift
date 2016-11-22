@@ -9,21 +9,21 @@
 import Foundation
 
 
-public class FormTextRow: FormBaseRow, FormRow
+open class FormTextRow: FormBaseRow, FormRow
 {
     public enum ChangeType {
-        case EditingChanged
-        case EditingEnded
+        case editingChanged
+        case editingEnded
     }
     
     let textField = FormRowUITextField()
     
-    public var control: UIControl {
+    open var control: UIControl {
         return textField
     }
-    override public var value: AnyObject? {
+    override open var value: AnyObject? {
         get {
-            return textField.text ?? ""
+            return textField.text as AnyObject?? ?? "" as AnyObject?
         }
         set {
             if let newValue = newValue as? String {
@@ -34,7 +34,7 @@ public class FormTextRow: FormBaseRow, FormRow
         }
     }
     
-    public var onTextChangeClosure: ((FormTextRow, ChangeType) -> Void)?
+    open var onTextChangeClosure: ((FormTextRow, ChangeType) -> Void)?
     
     public init(withQuestion question: String, placeholderText: String = "", onTextChangeClosure:((FormTextRow, ChangeType) -> Void)? = nil)
     {
@@ -43,20 +43,20 @@ public class FormTextRow: FormBaseRow, FormRow
         super.init(withQuestion: question)
         
         textField.placeholder = placeholderText
-        textField.addTarget(self, action: #selector(FormTextRow.textEditingChanged), forControlEvents: .EditingChanged)
-        textField.addTarget(self, action: #selector(FormTextRow.textEditingEnded), forControlEvents: .EditingDidEnd)
-        textField.layer.borderColor = UIColor.darkGrayColor().CGColor
+        textField.addTarget(self, action: #selector(FormTextRow.textEditingChanged), for: .editingChanged)
+        textField.addTarget(self, action: #selector(FormTextRow.textEditingEnded), for: .editingDidEnd)
+        textField.layer.borderColor = UIColor.darkGray.cgColor
         textField.layer.borderWidth = 1
         textField.layer.cornerRadius = 4
     }
     
-    @objc internal func textEditingChanged(sender:UIButton!)
+    @objc internal func textEditingChanged(_ sender:UIButton!)
     {
-        onTextChangeClosure?(self, .EditingChanged)
+        onTextChangeClosure?(self, .editingChanged)
     }
     
-    @objc internal func textEditingEnded(sender:UIButton!)
+    @objc internal func textEditingEnded(_ sender:UIButton!)
     {
-        onTextChangeClosure?(self, .EditingEnded)
+        onTextChangeClosure?(self, .editingEnded)
     }
 }

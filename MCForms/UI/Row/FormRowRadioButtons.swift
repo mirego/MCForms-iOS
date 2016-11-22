@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class FormRowRadioButtons: UIControl
+open class FormRowRadioButtons: UIControl
 {
     var buttons: [UIButton]!
     var tileLayers: [CALayer]!
@@ -16,8 +16,8 @@ public class FormRowRadioButtons: UIControl
     let padding: CGFloat = 5
     let buttonEdgeSize: CGFloat = 40
     
-    private var selectedButtonColor: UIColor = UIColor.greenColor()
-    dynamic public var _selectedButtonColor: UIColor {
+    fileprivate var selectedButtonColor: UIColor = UIColor.green
+    dynamic open var _selectedButtonColor: UIColor {
         get { return selectedButtonColor }
         set {
             selectedButtonColor = newValue
@@ -25,8 +25,8 @@ public class FormRowRadioButtons: UIControl
         }
     }
     
-    private var selectedButtonImage: UIImage?
-    dynamic public var _selectedButtonImage: UIImage? {
+    fileprivate var selectedButtonImage: UIImage?
+    dynamic open var _selectedButtonImage: UIImage? {
         get { return selectedButtonImage }
         set {
             selectedButtonImage = newValue
@@ -44,44 +44,44 @@ public class FormRowRadioButtons: UIControl
         }
         
         for button in buttons {
-            button.setBackgroundImage(image, forState: .Selected)
+            button.setBackgroundImage(image, for: .selected)
         }
     }
     
-    private var buttonColor: UIColor = UIColor.whiteColor()
-    dynamic public var _buttonColor: UIColor {
+    fileprivate var buttonColor: UIColor = UIColor.white
+    dynamic open var _buttonColor: UIColor {
         get { return buttonColor }
         set {
             buttonColor = newValue
             for button in buttons {
-                button.setBackgroundImage(UIImage.imageWithColor(buttonColor), forState: .Normal)
+                button.setBackgroundImage(UIImage.imageWithColor(buttonColor), for: UIControlState())
             }
         }
     }
     
-    dynamic public var _tileBackgroundColor: UIColor {
+    dynamic open var _tileBackgroundColor: UIColor {
         get {
             if let tileLayers = tileLayers, let tile = tileLayers.first {
-                return UIColor(CGColor:tile.backgroundColor!)
+                return UIColor(cgColor:tile.backgroundColor!)
             }
-            return UIColor.lightGrayColor().colorWithAlphaComponent(0.4)
+            return UIColor.lightGray.withAlphaComponent(0.4)
         }
         set {
             for tile in tileLayers {
-                tile.backgroundColor = newValue.CGColor
+                tile.backgroundColor = newValue.cgColor
             }
         }
     }
     
-    public var selectedIndex: Int? {
+    open var selectedIndex: Int? {
         get {
-            for button in buttons where button.selected {
-                return buttons.indexOf(button)
+            for button in buttons where button.isSelected {
+                return buttons.index(of: button)
             }
             return nil
         }
         set {
-            if let newValue = newValue where buttons.count > newValue {
+            if let newValue = newValue, buttons.count > newValue {
                 selectButton(buttons[newValue])
             } else {
                 selectButton(nil)
@@ -99,13 +99,13 @@ public class FormRowRadioButtons: UIControl
         let tileBackgroundColor = _tileBackgroundColor
         for _ in 1...optionsCount {
             let tile = CALayer()
-            tile.backgroundColor = tileBackgroundColor.CGColor
+            tile.backgroundColor = tileBackgroundColor.cgColor
             layer.addSublayer(tile)
             tileLayers.append(tile)
             
-            let button = UIButton(type: .Custom)
+            let button = UIButton(type: .custom)
             stylelizeButton(button)
-            button.addTarget(self, action: #selector(FormRowRadioButtons.buttonTapped), forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: #selector(FormRowRadioButtons.buttonTapped), for: .touchUpInside)
             addSubview(button)
             buttons.append(button)
         }
@@ -119,7 +119,7 @@ public class FormRowRadioButtons: UIControl
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func layoutSubviews()
+    override open func layoutSubviews()
     {
         super.layoutSubviews()
         
@@ -140,18 +140,18 @@ public class FormRowRadioButtons: UIControl
         }
     }
     
-    public override func sizeThatFits(size: CGSize) -> CGSize
+    open override func sizeThatFits(_ size: CGSize) -> CGSize
     {
         return CGSize(width: max(size.width, CGFloat(buttons.count) * (buttonEdgeSize + padding) + padding),
                       height: buttonEdgeSize + padding + padding)
     }
     
-    public override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView?
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView?
     {
-        let hittedView = super.hitTest(point, withEvent: event)
+        let hittedView = super.hitTest(point, with: event)
         if hittedView == self {
             for button in buttons {
-                if CGRectContainsPoint(CGRectInset(button.frame, -10, -10) , point) {
+                if button.frame.insetBy(dx: -10, dy: -10).contains(point) {
                     buttonTapped(button)
                     break
                 }
@@ -161,34 +161,34 @@ public class FormRowRadioButtons: UIControl
         return hittedView
     }
     
-    func buttonTapped(button: UIButton)
+    func buttonTapped(_ button: UIButton)
     {
-        if !button.selected {
+        if !button.isSelected {
             selectButton(button)
         }
     }
     
-    private func selectButton(newSelectedButton: UIButton?)
+    fileprivate func selectButton(_ newSelectedButton: UIButton?)
     {
         let currentSelectedIndex = selectedIndex
         
         for button in buttons {
-            if let newSelectedButton = newSelectedButton where newSelectedButton == button {
-                button.selected = true
+            if let newSelectedButton = newSelectedButton, newSelectedButton == button {
+                button.isSelected = true
             } else {
-                button.selected = false
+                button.isSelected = false
             }
         }
         
         if currentSelectedIndex != selectedIndex {
-            sendActionsForControlEvents(.ValueChanged)
+            sendActions(for: .valueChanged)
         }
     }
     
-    private func stylelizeButton(button: UIButton)
+    fileprivate func stylelizeButton(_ button: UIButton)
     {
         button.clipsToBounds = true
-        button.setBackgroundImage(UIImage.imageWithColor(buttonColor), forState: .Normal)
-        button.setBackgroundImage(UIImage.imageWithColor(selectedButtonColor), forState: .Selected)
+        button.setBackgroundImage(UIImage.imageWithColor(buttonColor), for: UIControlState())
+        button.setBackgroundImage(UIImage.imageWithColor(selectedButtonColor), for: .selected)
     }
 }

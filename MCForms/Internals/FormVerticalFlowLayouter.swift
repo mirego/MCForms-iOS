@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class FormVerticalFlowLayouter: FormLayouter
+open class FormVerticalFlowLayouter: FormLayouter
 {
     var rowsSectionSpacing: CGFloat = 20
     var rowsGroupSpacing: CGFloat = 15
@@ -21,7 +21,7 @@ public class FormVerticalFlowLayouter: FormLayouter
         
     }
     
-    public func layoutFormRowsGroups(formRowsGroups: [FormRowsGroup], boundingRect: CGSize, contentInsets: UIEdgeInsets) -> CGSize
+    open func layoutFormRowsGroups(_ formRowsGroups: [FormRowsGroup], boundingRect: CGSize, contentInsets: UIEdgeInsets) -> CGSize
     {
         var insets = contentInsets
         var totalGroupsHeight: CGFloat = 0
@@ -37,7 +37,7 @@ public class FormVerticalFlowLayouter: FormLayouter
         return CGSize(width: boundingRect.width, height: totalGroupsHeight)
     }
     
-    public func layoutFormRowsGroup(formRowsGroup: FormRowsGroup, boundingRect: CGSize, contentInsets: UIEdgeInsets) -> CGSize
+    open func layoutFormRowsGroup(_ formRowsGroup: FormRowsGroup, boundingRect: CGSize, contentInsets: UIEdgeInsets) -> CGSize
     {
         let maxSize = CGSize(width: boundingRect.width - contentInsets.left - contentInsets.right,
                              height: boundingRect.height - contentInsets.top - contentInsets.bottom)
@@ -46,11 +46,11 @@ public class FormVerticalFlowLayouter: FormLayouter
         formRowsGroup.titleLabel.frame = CGRect(x: contentInsets.left, y: contentInsets.top, width: maxSize.width, height: titleLabelSize.height)
         
         let commentLabelSize = formRowsGroup.commentLabel.sizeThatFits(maxSize)
-        let commentTopOffset = CGRectGetMaxY(formRowsGroup.titleLabel.frame) + (commentLabelSize.height > 0 ? 5 : 0)
+        let commentTopOffset = formRowsGroup.titleLabel.frame.maxY + (commentLabelSize.height > 0 ? 5 : 0)
         formRowsGroup.commentLabel.frame = CGRect(x: contentInsets.left, y: commentTopOffset, width: maxSize.width, height: commentLabelSize.height)
         
         var totalRowsHeight: CGFloat = 0
-        var newInset = UIEdgeInsets(top: CGRectGetMaxY(formRowsGroup.commentLabel.frame) + rowsGroupSpacing, left: contentInsets.left, bottom: contentInsets.bottom, right: contentInsets.right)
+        var newInset = UIEdgeInsets(top: formRowsGroup.commentLabel.frame.maxY + rowsGroupSpacing, left: contentInsets.left, bottom: contentInsets.bottom, right: contentInsets.right)
         
         for formRow in formRowsGroup.rows {
             let rowSize = layoutFormRow(formRow, boundingRect: boundingRect, contentInsets: newInset)
@@ -63,7 +63,7 @@ public class FormVerticalFlowLayouter: FormLayouter
         return CGSize(width: maxSize.width, height: titleLabelSize.height + totalRowsHeight + rowsGroupSpacing)
     }
     
-    public func layoutFormRow(formRow: FormRow, boundingRect: CGSize, contentInsets: UIEdgeInsets) -> CGSize
+    open func layoutFormRow(_ formRow: FormRow, boundingRect: CGSize, contentInsets: UIEdgeInsets) -> CGSize
     {
         let maxSize = CGSize(width: boundingRect.width - contentInsets.left - contentInsets.right,
                              height: boundingRect.height - contentInsets.top - contentInsets.bottom)
@@ -80,13 +80,13 @@ public class FormVerticalFlowLayouter: FormLayouter
         var accesoryViewXPosition = maxSize.width + contentInsets.left
         var maxAccessoryHeight: CGFloat = 0
         var maxAccessoryY: CGFloat = 0
-        for (_, accessoryView) in formRow.accessoryViews.enumerate() {
+        for (_, accessoryView) in formRow.accessoryViews.enumerated() {
             let accessoryYOffset = contentInsets.top - ((accessoryView.frame.size.height - questionLabelSize.height) / 2.0)
             let origin = CGPoint(x: accesoryViewXPosition - accessoryView.frame.size.width, y: accessoryYOffset)
             accessoryView.frame = CGRect(origin: origin, size: accessoryView.frame.size)
             accesoryViewXPosition = accesoryViewXPosition - accessoryView.frame.size.width - 10
             maxAccessoryHeight = max(maxAccessoryHeight, accessoryView.frame.size.height)
-            maxAccessoryY = max(maxAccessoryY, CGRectGetMaxY(accessoryView.frame))
+            maxAccessoryY = max(maxAccessoryY, accessoryView.frame.maxY)
         }
         
         var topOffset: CGFloat = 0
@@ -101,17 +101,17 @@ public class FormVerticalFlowLayouter: FormLayouter
         
         var lastView: UIView = formRow.control
         
-        if let footerView = formRow.footerView where !footerView.hidden {
+        if let footerView = formRow.footerView, !footerView.isHidden {
             topOffset = topOffset + formRow.control.frame.height + rowQuestionControlSpacing
             
             UIView.performWithoutAnimation({ 
-                footerView.frame =  CGRectMake(contentInsets.left, contentInsets.top + topOffset, footerView.frame.size.width, footerView.frame.size.height)
+                footerView.frame =  CGRect(x: contentInsets.left, y: contentInsets.top + topOffset, width: footerView.frame.size.width, height: footerView.frame.size.height)
             })
             
             
             lastView = footerView
         }
         
-        return CGSize(width: maxSize.width, height: CGRectGetMaxY(lastView.frame) - contentInsets.top + rowsSpacing + rowQuestionControlSpacing)
+        return CGSize(width: maxSize.width, height: lastView.frame.maxY - contentInsets.top + rowsSpacing + rowQuestionControlSpacing)
     }
 }

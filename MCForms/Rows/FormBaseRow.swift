@@ -8,32 +8,32 @@
 
 import Foundation
 
-public class FormBaseRow
+open class FormBaseRow
 {
-    public var required: Bool = false
+    open var required: Bool = false
     
-    public var questionLabel = FormRowQuestionLabel()
+    open var questionLabel = FormRowQuestionLabel()
     
-    public var value: AnyObject? {
+    open var value: AnyObject? {
         return nil
     }
     
-    public var accessoryViews = [UIView]() {
+    open var accessoryViews = [UIView]() {
         willSet {
-            for (_, view) in accessoryViews.enumerate() {
+            for (_, view) in accessoryViews.enumerated() {
                 view.removeFromSuperview()
             }
         }
         didSet {
             if let superview = questionLabel.superview {
-                for (_, view) in accessoryViews.enumerate() {
+                for (_, view) in accessoryViews.enumerated() {
                     superview.addSubview(view)
                 }
             }
         }
     }
     
-    public var footerView: UIView? {
+    open var footerView: UIView? {
         willSet {
             footerView?.removeFromSuperview()
         }

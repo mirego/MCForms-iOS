@@ -8,19 +8,19 @@
 
 import UIKit
 
-public class FormRowUISwitch: UISwitch
+open class FormRowUISwitch: UISwitch
 {
-    dynamic public var _onTintColor: UIColor? {
+    dynamic open var _onTintColor: UIColor? {
         get { return self.onTintColor }
         set { self.onTintColor = newValue }
     }
     
-    dynamic public var _tintColor: UIColor? {
+    dynamic open var _tintColor: UIColor? {
         get { return self.tintColor }
         set { self.tintColor = newValue }
     }
     
-    dynamic public var _thumbTintColor: UIColor? {
+    dynamic open var _thumbTintColor: UIColor? {
         get { return self.thumbTintColor }
         set { self.thumbTintColor = newValue }
     }

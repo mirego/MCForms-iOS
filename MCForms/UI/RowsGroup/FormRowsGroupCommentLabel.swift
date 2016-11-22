@@ -8,6 +8,6 @@
 
 import UIKit
 
-public class FormRowsGroupCommentLabel: FormUILabel {
+open class FormRowsGroupCommentLabel: FormUILabel {
     
 }
