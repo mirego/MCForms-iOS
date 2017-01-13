@@ -107,7 +107,7 @@ You can add a "Save" button at the bottom of the form if you'd like.
 ## Who is using this ?
 This lib was built in anticipation of future projects needing the same form engine. Time will tell if it was usabled.
 
-* Sépaq (https://github.com/mirego/sepaq-inspections-ios)
+* Sépaq Inspections
 
 ## Contributions
 Pull-requests are welcome !
